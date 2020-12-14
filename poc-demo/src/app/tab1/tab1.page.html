@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      <!-- You can use the service directly if it is public in the constructor.  -->
+      {{  this.listPresentationService.listId$ | async }} {{ this.listPresentationService.productId$ | async }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-button (click)="this.updateListId('ListId Updated')">Update ListId</ion-button>
+  <ion-button (click)="this.updateProductId('ProductId Updated')">Update ProductId</ion-button>
+  <br />
+  <!-- Display combined selectors -->
+  {{ this.listIdProductId$ | async | json }}
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 1</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <!-- Bound below with async -->
+  <app-explore-container name="{{ this.listId$ | async }} {{ this.productId$ | async }}"></app-explore-container>
+</ion-content>

@@ -1,0 +1,88 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "usf-product": {
+      "projectType": "library",
+      "root": "projects/usf-product",
+      "sourceRoot": "projects/usf-product/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/usf-product/tsconfig.lib.json",
+            "project": "projects/usf-product/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/usf-product/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/usf-product/src/test.ts",
+            "tsConfig": "projects/usf-product/tsconfig.spec.json",
+            "karmaConfig": "projects/usf-product/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/usf-product/tsconfig.lib.json",
+              "projects/usf-product/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "usf-list": {
+      "projectType": "library",
+      "root": "projects/usf-list",
+      "sourceRoot": "projects/usf-list/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/usf-list/tsconfig.lib.json",
+            "project": "projects/usf-list/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/usf-list/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/usf-list/src/test.ts",
+            "tsConfig": "projects/usf-list/tsconfig.spec.json",
+            "karmaConfig": "projects/usf-list/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/usf-list/tsconfig.lib.json",
+              "projects/usf-list/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "usf-product"
+}
